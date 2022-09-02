@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryColumn,
   UpdateDateColumn,
@@ -30,12 +31,11 @@ class Property {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToOne(() => Address)
+  @OneToOne(() => Address, { nullable: false })
   @JoinColumn()
   address: Address;
 
-  @OneToOne(() => Category)
-  @JoinColumn()
+  @ManyToOne(() => Category)
   category: Category;
 }
 
