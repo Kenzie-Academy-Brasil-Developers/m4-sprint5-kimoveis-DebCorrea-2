@@ -5,6 +5,7 @@ import {
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Exclude } from "class-transformer";
 
 @Entity("users")
 class User {
@@ -24,6 +25,7 @@ class User {
   isActive: boolean;
 
   @Column({ length: 80 })
+  @Exclude()
   password: string;
 
   @CreateDateColumn()
