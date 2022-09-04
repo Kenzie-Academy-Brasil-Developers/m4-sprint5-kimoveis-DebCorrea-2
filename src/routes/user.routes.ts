@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { createUserController } from "../controllers/user.controllers";
-import { listUsersController } from "../controllers/session.controllers";
+import { listUsersController } from "../controllers/user.controllers";
 import validateUserCreation from "../middlewares/validateUserCreation.middleware";
 import createUserSchema from "../schemas/createUser.schema";
 import verifyAuthentication from "../middlewares/verifyAuthentication.middleware";
@@ -15,6 +15,7 @@ export const userRoutes = () => {
     createUserController
   );
   routes.get("/", verifyAuthentication, listUsersController);
+  routes.delete("/:id", )
 
   return routes;
 };
