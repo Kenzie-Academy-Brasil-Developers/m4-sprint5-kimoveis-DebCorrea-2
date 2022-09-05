@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import createPropertyService from "../services/properties/createProperty.service";
+import listPropertiesService from "../services/properties/listProperties.service";
 
 const createPropertyController = async (req: Request, res: Response) => {
   const { value, size, address, categoryId } = req.body;
@@ -15,4 +16,10 @@ const createPropertyController = async (req: Request, res: Response) => {
   return res.status(201).json(property);
 };
 
-export { createPropertyController };
+const listPropertiesController = async (req: Request, res: Response) => {
+  const properties = await listPropertiesService();
+
+  return res.json(properties);
+};
+
+export { createPropertyController, listPropertiesController };
