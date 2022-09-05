@@ -10,5 +10,5 @@ export interface IPropertyRequest {
   value: number;
   size: number;
   address: IAddressRequest;
-  categoryId: string;
+  categoryId?: string;
 }
